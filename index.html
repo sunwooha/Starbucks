@@ -43,8 +43,8 @@
 			var h = 600;
 
 			var x = d3.scaleLinear()
-				.domain([10, 3000])
-				.rangeRound([300, 900]);
+				.domain([0.1, 1.0])
+				.rangeRound([550, 900]);
 
 			//Define map projection
 			var projection = d3.geoAlbersUsa()
@@ -68,7 +68,7 @@
 				.style("opacity", 0);
 			
 			// Threshold of colors
-			var color = d3.scaleThreshold().range(d3.schemeBuGn[9]).domain([10, 100, 200, 300, 400, 800, 1000, 2000, 3000]);
+			var color = d3.scaleThreshold().range(d3.schemeGreens[9]).domain([0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]);
 
 			// Creating the lengend
 			var g = svg.append("g")
@@ -95,9 +95,9 @@
 					.attr("fill", "#000")
 					.attr("text-anchor", "start")
 					.attr("font-weight", "bold")
-					.attr("font-size", "15px")
+					.attr("font-size", "13px")
 					.attr("font-family", "Avenir Next")
-					.text("Number of Starbucks Locations");
+					.text("Number of Starbucks Locations per 10,000 People");
 
 				g.call(d3.axisBottom(x)
 					.tickSize(15)
